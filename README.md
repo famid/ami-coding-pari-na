@@ -3,6 +3,7 @@ Requirements:
 -------------
 1. PHP >= 7.2.5 and also php extension
 2. composer
+3. Mysql
 
 ```
 
@@ -14,19 +15,22 @@ Installation:
 2. Then run the below command from the terminal:
 $ git clone "https://github.com/famid/ami-coding-pari-na.git"
 
-3. Then run:
+3. create a .env file and copy from .env.example then set these variables .
+ 
+ APP_NAME,
+ DB_DATABASE,
+ DB_USERNAME,
+ DB_PASSWORD,
+ 
+4. Then run:
 $ composer install
-
-4. create a .env file and set these variables. likes APP_NAME, database credentials
 
 5. Lastly, run a few commands:
 
-$ php artisan key: generate
+$ php artisan key:generate
 $ php artisan migrate
-$ php artisan db: seed
-
-If you need to implement API, then run the below command.
-$ php artisan passport: install
+$ php artisan db:seed
+$ php artisan passport:install
 
 6. To run the application locally, run:
 
@@ -36,8 +40,12 @@ $ php artisan serve
 email: testuser1@gmail.com
 password: 12345678
 ```
+```
+ Local Url: http://localhost:8000
+ Remote Url:
+```
 
-# User Authentication/Registration Page
+### User Authentication/Registration Page
 ```
 Registration:
 
@@ -56,9 +64,9 @@ Constrains:
 ```
 
 '''
-# Khoj the search Page
+### Khoj the search
 ```
- url = /
+ url = /khoj-the-search
  
  work-flow:
  1. Take the input vlaues
@@ -80,25 +88,17 @@ Constrains:
  The time compexity of binary search O(log(n))
  
 ```
-# API Endpoints:
-```
+### API Endpoints:
+
+ [API DOCUMENTATION (Local env)](https://documenter.getpostman.com/view/11215347/2s8YepsYfS).
 
 
-```
 
-## About Laravel Hybrid
 
-This application follows service repository pattern.
 
-Workflow: Route -> Request -> Controller -> Service -> Repository
+### Project conding pattern.
 
-Why this structure?
-1. If our projects grows, we can easily add new module.
-2. Easy to understand and find errors.
-3. If anything need to change, we can easily change it.
-  Ex. Present Situation:
 
-Some explanation about code pattern:
 
 - **[Request](#)**
 ```
@@ -131,6 +131,7 @@ Some explanation about code pattern:
         ]; 
     }
 ```
+- **[Controller](#)**
 ```
 Controller Structure (app/Http/Controllers):
 
@@ -151,7 +152,6 @@ Controller Structure (app/Http/Controllers):
 
 ```
 ```
-Controller
    
     How to make controller class?
     For Api:  php artisan make:controller Api/TestModule/TestController
@@ -185,6 +185,8 @@ Controller
     In controller class, we does not write our bussiness logic, it will 
     just receive the request and pass the response.
 ```
+- **[Services](#)**
+
 ```
 Services Structure (app/Http/Services):
 
@@ -204,13 +206,8 @@ Services Structure (app/Http/Services):
 ├── KhojTheSearch
 │   └── KhojTheSearchService.php
 └── UserService.php
-
-
-
 ```
 
-
-- **[Service](#)**
 ```
     In Service class, we only write our business logic, then 
     return the required data to the controller class.
@@ -253,6 +250,7 @@ Services Structure (app/Http/Services):
     If you want to customize the default error message or other things,
     checkout on "ResponseService" in App\Http\Services\Boilerplate dir.  
 ```
+- **[Repository](#)**
 ```
 Repositories Structure (app/Http/Repositories):
 
@@ -261,16 +259,14 @@ Repositories Structure (app/Http/Repositories):
 ├── OAuthAccessTokenRepository.php
 └── UserRepository.php
 ```
-
-- **[Repository](#)**
 ```
     If you need to query anything on the database, write the function on 
     repository class.
     
-    In our boilerplate, all repository classes inherited abstract
-    BaseRepository class. BaseRepository class provides lots of
-    query methods that we use most frequently. Besides if you need
-    to write a new query, you will write on the repository class.
+    All repository classes inherited abstract BaseRepository class.
+    BaseRepository class provides lots of query methods that we use 
+    most frequently. Besides if you need to write a new query, you 
+    will write on the repository class.
     
     You can create a Repository class by running the artisan command.
     
@@ -292,9 +288,18 @@ Repositories Structure (app/Http/Repositories):
             ->first();
     }
 ```
+### Why this pattern?
+
+Workflow: Route -> Request -> Controller -> Service -> Repository
+
+Why this structure?
+1. If our projects grows, we can easily add new module.
+2. Easy to understand and find errors.
+3. If anything need to change, we can easily change it.
+   Ex. Present Situation:
 
 
-To know about all dependency of php extension check [Laravel documentation](https://laravel.com/docs/7.x/installation).
+
 
 
 
