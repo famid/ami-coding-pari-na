@@ -16,10 +16,12 @@ class KhojTheSearchTableSeeder extends Seeder
             [
                 'input_values' => "11, 9, 7, 5, 0",
                 'user_id' => 1,
+                'created_at' => "2022-11-11 19:53:14"
             ],
             [
                 'input_values' => "100, 89, 79, 69, 9",
                 'user_id' => 1,
+                'created_at' => "2022-11-11 19:53:17"
             ],
 
         ]);
