@@ -44,6 +44,8 @@ password: 12345678
  Local Url: http://localhost:8000
  Remote Url: http://amicodingparina.ahsanulhoquefamid.xyz
 ```
+[Project Url: http://amicodingparina.ahsanulhoquefamid.xyz](http://amicodingparina.ahsanulhoquefamid.xyz).
+
 
 ### User Authentication/Registration Page
 ```

@@ -28,8 +28,6 @@
             <label for="passwordConfirm">Retype password:</label>
             <input type="password" id="passwordConfirm" name="password_confirmation" required>
 
-            <input type="checkbox" id="development" value="interest_development" name="user_interest">
-            <label class="light" for="development">Development</label><br>
         </fieldset>
         <div>Already have an account? Please <a href="{{route('web.auth.sign_in.index')}}">Login</a> </div>
         <button type="submit">Sign Up</button>

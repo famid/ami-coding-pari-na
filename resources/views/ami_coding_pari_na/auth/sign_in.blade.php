@@ -18,6 +18,8 @@
                 <input type="password" id="password" name="password" required>
 
             </fieldset>
+            <div>Don't have an account? Please <a href="{{route('web.auth.sign_up.index')}}">Register</a> </div>
+
             <button type="submit">Sign In</button>
         </form>
     </div>
