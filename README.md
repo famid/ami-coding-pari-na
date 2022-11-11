@@ -42,6 +42,7 @@ password: 12345678
 ```
 ```
  Local Url: http://localhost:8000
+ Remote Url: http://amicodingparina.ahsanulhoquefamid.xyz
 ```
 
 ### User Authentication/Registration Page
@@ -67,6 +68,8 @@ Constrains:
 ```
  url = /khoj-the-search
  
+ source path: Ami-Coding-Pari-Na/public/assets/js/script.js
+ 
  work-flow:
  1. Take the input vlaues
  2. Filter the input values(for other char, or space) using js filter function.
@@ -88,8 +91,14 @@ Constrains:
  
 ```
 ### API Endpoints:
+ 
+ [API DOCUMENTATION](https://documenter.getpostman.com/view/11215347/2s8YepsYfS).
+```
+base url (local) = http://127.0.0.1:8000/api/v1
+base url(remote) = http://amicodingparina.ahsanulhoquefamid.xyz/api/v1
 
- [API DOCUMENTATION (Local env)](https://documenter.getpostman.com/view/11215347/2s8YepsYfS).
+ex: http://amicodingparina.ahsanulhoquefamid.xyz/api/v1/user/sign-in
+```
 
 
 
