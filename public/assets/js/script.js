@@ -1,6 +1,7 @@
 let inputValues = null
 let searchValue = null
 let valueExists = false
+
 document.addEventListener('DOMContentLoaded', () => {
     let searchValueInput = document.getElementById('search_value')
     let inputValuesInput = document.getElementById('input_values')
@@ -8,12 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     submitButton.addEventListener('click', event => {
         searchValue = Number(searchValueInput.value)
-        // inputValues = inputValuesInput.value.split(',').map(Number)
         inputValues = inputValuesInput.value.split(",").filter(function (x) { return x !== "" && !isNaN(Number(x)); }).map(Number);
-        console.log("New Boss: ", inputValues)
-        // console.log("Before: ", inputValues)
-        // newInputValues = inputValues.filter(el => Number.isInteger(el))
-        // console.log("After: ", newInputValues)
 
         handleSubmitButtonClick()
     })
@@ -22,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function handleSubmitButtonClick() {
     sortInputValues()
     removeAlert()
-    // valueExists = isExists(inputValues, searchValue)
+
     axios({
         method: 'POST',
         url: routes['web.khoj_the_search.store'],
@@ -59,7 +55,7 @@ function isExists () {
     // Iterate while start not meets end
     while (start <= end){
 
-        // Find the mid index
+        // Find the mid-index
         let mid= Math.floor((start + end)/2);
         if (inputValues[mid] === searchValue) return true;
 
@@ -69,9 +65,7 @@ function isExists () {
         else
             start = mid + 1;
     }
-    console.log('HOLA', start, end)
     return false;
-    // return inputValues.includes(searchValue)
 }
 
 function sortInputValues() {
