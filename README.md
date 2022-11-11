@@ -42,7 +42,6 @@ password: 12345678
 ```
 ```
  Local Url: http://localhost:8000
- Remote Url:
 ```
 
 ### User Authentication/Registration Page
@@ -296,8 +295,27 @@ Why this structure?
 1. If our projects grows, we can easily add new module.
 2. Easy to understand and find errors.
 3. If anything need to change, we can easily change it.
-   Ex. Present Situation:
+   Ex. Present Situation: get_all_inputs need to paginate.
+   Then need to go only KhojTheSearch Repository, Then 
+   chane only one line of code!!
+```
+    Pasent code:
+    public function userAllInputs(int $userId, $from, $to) {
+        return $this->model::select('created_at as timestamp', 'input_values')
+            ->where(['user_id' => $userId])
+            ->whereBetween('created_at', [$from, $to])
+            ->get();
+    }
+  ```  
+    After changing the requirements:
 
+    public function userAllInputs(int $userId, $from, $to) {
+        return $this->model::select('created_at as timestamp', 'input_values')
+            ->where(['user_id' => $userId])
+            ->whereBetween('created_at', [$from, $to])
+            ->simplePaginate(5); 
+    }
+    
 
 
 
