@@ -64,7 +64,7 @@
 @endif
 <div class="nav">
     <ul class="nav-list">
-        <li class="nav-item"><a href="">Logout</a></li>
+        <li class="nav-item"><a href="{{route('web.auth.sign_out')}}">Logout</a></li>
     </ul>
 </div>
 <div class="container">
